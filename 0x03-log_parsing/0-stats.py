@@ -5,12 +5,6 @@ import re
 
 def parse_log_line(line):
     '''Parses a single line of HTTP log and extracts its components.
-
-    Args:
-        line (str): A single line from the log file.
-
-    Returns:
-        dict: A dictionary containing status_code and file_size.
     '''
     pattern_parts = (
         r'\s*(?P<ip>\S+)\s*',
@@ -31,10 +25,6 @@ def parse_log_line(line):
 
 def display_statistics(total_size, status_counts):
     '''Displays the accumulated statistics of the HTTP requests.
-
-    Args:
-        total_size (int): The total size of all files.
-        status_counts (dict): A dictionary of status codes and their counts.
     '''
     print(f'File size: {total_size}', flush=True)
     for status_code in sorted(status_counts.keys()):
